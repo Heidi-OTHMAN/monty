@@ -10,11 +10,11 @@ void prnt_char(stack_t **stck, unsigned int line_numb)
 	int ascii;
 
 	if (stck == NULL || *stck == NULL)
-		string_err(11, line_numb);
+		strg_err(11, line_numb);
 
 	ascii = (*stck)->a;
 	if (ascii < 0 || ascii > 127)
-		string_err(10, line_numb);
+		strg_err(10, line_numb);
 	printf("%c\n", ascii);
 }
 

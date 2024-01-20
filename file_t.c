@@ -11,7 +11,7 @@ void op_file(char *fi_name)
 	FILE *f_d = fopen(fi_name, "r");
 
 	if (fi_name == NULL || f_d == NULL)
-		err(2, fi_name);
+		errors(2, fi_name);
 
 	rd_file(f_d);
 	fclose(f_d);
@@ -151,10 +151,10 @@ void cal_f(op_func funct, char *ope, char *vali, int len, int formt)
 		}
 		nod = create_node(atoi(vali) * flg);
 		if (formt == 0)
-			func(&nod, len);
+			funct(&nod, len);
 		if (formt == 1)
 			add_to_queue(&nod, len);
 	}
 	else
-		func(&hd, len);
+		funct(&hd, len);
 }
